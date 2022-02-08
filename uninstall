@@ -1,0 +1,9 @@
+echo "Removing symlinks.."
+
+for DIRECTORY in */;
+do 
+	echo "  "$DIRECTORY
+	stow --target=$HOME -D $DIRECTORY
+done	
+
+echo "Symlinks removed.."

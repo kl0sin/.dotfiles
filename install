@@ -1,0 +1,9 @@
+echo "Creating symlinks.."
+
+for DIRECTORY in */;
+do
+	echo "  "Adding $DIRECTORY
+	stow --target=$HOME $DIRECTORY
+done
+
+echo "Symlinks created.."
