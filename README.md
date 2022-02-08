@@ -3,10 +3,11 @@
 My personal collection of config files.
 
 - [Install](#install)
+  - [Clone repo](#clone-repo)
   - [Brew](#brew)
   - [Install Packages](#install-packages)
   - [Link configuration](#link-configuration)
- - [Uninstall](#uninstall)
+- [Uninstall](#uninstall)
 
 ## Install
 
@@ -19,6 +20,7 @@ Before we start, you need to clone this repository
 ```zsh
 git clone git@github.com:kl0sin/.dotfiles.git
 ```
+
 and after go `.dotfiles` directory.
 
 ```zsh
@@ -43,7 +45,7 @@ brew bundle
 
 ### Link configuration
 
-Create simlinks in your `$HOME` directory using `stow` by running:
+Create symlinks in your `$HOME` directory using `stow` by running:
 
 ```zsh
 ./install
@@ -51,11 +53,10 @@ Create simlinks in your `$HOME` directory using `stow` by running:
 
 ## Uninstall
 
-To remove simlinks from you `$HOME` directory run:
+To remove symlinks from you `$HOME` directory run:
 
 ```zsh
 ./uninstall
 ```
-
 
 > Everything was prepared using `zsh` and `masOS Monterey 12.2`. Some issues my happen during the installation process. Feel free to open `Pull Request` if you want to help.
