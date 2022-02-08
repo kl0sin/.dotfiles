@@ -21,7 +21,7 @@ Before we start, you need to clone this repository
 git clone git@github.com:kl0sin/.dotfiles.git
 ```
 
-and after go `.dotfiles` directory.
+and after go to `.dotfiles` directory.
 
 ```zsh
 cd .dotfiles/
