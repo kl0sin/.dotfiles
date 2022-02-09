@@ -47,6 +47,22 @@ nmap <leader>ve :edit ~/.config/nvim/init.vim<cr>
 nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
 nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
 
+" Let 'Y' behave like the other capital letters
+nnoremap Y y$
+
+" Keeping it centered
+nnoremap n nzzzv
+nnoremap J mzJ`z
+nnoremap N Nzzzv
+
+" Moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+
 " -------------------------------------------------------------------------------
 "  Plugins
 " -------------------------------------------------------------------------------
