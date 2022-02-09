@@ -28,6 +28,8 @@ set splitright
 set clipboard=unnamedplus
 set updatetime=300
 set redrawtime=10000
+set encoding=UTF-8
+set wildignore+=*/node_modules/**
 
 " -------------------------------------------------------------------------------
 "  Key Maps
