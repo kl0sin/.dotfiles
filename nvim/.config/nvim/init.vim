@@ -59,6 +59,7 @@ source ~/.config/nvim/plugins/nerdtree.vim          " The NERDTree is a file sys
 source ~/.config/nvim/plugins/fzf.vim               " fzf is a general-purpose command-line fuzzy finder.
 source ~/.config/nvim/plugins/coc.vim               " Make you Vim/Neovim as smart as VSCode.
 source ~/.config/nvim/plugins/commentary.vim        " Comment stuff out.
-
+source ~/.config/nvim/plugins/dashboard.vim        " Comment stuff out.
 call plug#end()
+
 doautocmd User PlugLoaded
