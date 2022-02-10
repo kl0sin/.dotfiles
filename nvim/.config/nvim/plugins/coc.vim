@@ -44,3 +44,5 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <leader>l :CocFzfList<cr>
+
+nmap <leader>af <plug>(coc-fix-current)
