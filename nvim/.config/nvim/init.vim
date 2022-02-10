@@ -78,7 +78,7 @@ source ~/.config/nvim/plugins/commentary.vim        " Comment stuff out.
 source ~/.config/nvim/plugins/dashboard.vim         " Nice looking Dashboard.
 source ~/.config/nvim/plugins/smooth-scroll.vim     " Smooth Scroll.
 source ~/.config/nvim/plugins/cursorline.vim        " Hihglight words and line on the cursor for Neovim. 
-source ~/.config/nvim/plugins/vim-jsx-pretty.vim    " The React syntax highlighting and indenting plugin for vim. Also supports the typescript tsx file.
+source ~/.config/nvim/plugins/vim-polyglot.vim      " A collection of language packs for Vim
 
 call plug#end()
 
