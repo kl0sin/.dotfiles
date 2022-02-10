@@ -11,7 +11,6 @@
 " -------------------------------------------------------------------------------
 "  General Settings
 " -------------------------------------------------------------------------------
-set expandtab
 set shiftwidth=2
 set tabstop=2
 set hidden
@@ -78,6 +77,7 @@ source ~/.config/nvim/plugins/coc.vim               " Make you Vim/Neovim as sma
 source ~/.config/nvim/plugins/commentary.vim        " Comment stuff out.
 source ~/.config/nvim/plugins/dashboard.vim         " Nice looking Dashboard.
 source ~/.config/nvim/plugins/smooth-scroll.vim     " Smooth Scroll.
+source ~/.config/nvim/plugins/cursorline.vim     " Hihglight words and line on the cursor for Neovim. 
 
 call plug#end()
 
