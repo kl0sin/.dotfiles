@@ -46,3 +46,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>l :CocFzfList<cr>
 
 nmap <leader>af <plug>(coc-fix-current)
+nmap <leader>am <plug>(coc-format-selected)
+
+" Adding `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
