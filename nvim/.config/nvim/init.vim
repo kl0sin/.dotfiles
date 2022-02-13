@@ -124,9 +124,11 @@ EOF
  
 require'nvim-tree'.setup {
   auto_close = true,
-  -- lsp_diagnostics = true,
-  ignore_ft_on_setup  = { 'startify', 'dashboard' },
-}
+  ignore_ft_on_setup = { 'startify', 'dashboard' },
+  filters = {
+    custom = { '.git', 'node_modules' }
+  }
+} 
 
 EOF
 
