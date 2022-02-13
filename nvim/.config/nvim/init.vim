@@ -55,13 +55,11 @@ nnoremap n nzzzv
 nnoremap J mzJ`z
 nnoremap N Nzzzv
 
-" Moving text
+" Moving text lines up or down in normal and visual mode.
+nnoremap J :m .+1<CR>==
+nnoremap K :m .-2<CR>==
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
-nnoremap <leader>k :m .-2<CR>==
-nnoremap <leader>j :m .+1<CR>==
 
 " -------------------------------------------------------------------------------
 "  Plugins
