@@ -71,7 +71,6 @@ call plug#begin()
 
 source ~/.config/nvim/plugins/airline.vim           " Leam & mean status/tabline form vim that's ligh as air.
 source ~/.config/nvim/plugins/dracula.vim           " dracula - a dark theme for Vim
-source ~/.config/nvim/plugins/nerdtree.vim          " The NERDTree is a file system explorer for the Vim editor.
 source ~/.config/nvim/plugins/coc.vim               " Make you Vim/Neovim as smart as VSCode.
 source ~/.config/nvim/plugins/commentary.vim        " Comment stuff out.
 source ~/.config/nvim/plugins/dashboard.vim         " Nice looking Dashboard.
@@ -80,13 +79,14 @@ source ~/.config/nvim/plugins/cursorline.vim        " Hihglight words and line o
 source ~/.config/nvim/plugins/vim-polyglot.vim      " A collection of language packs for Vim
 source ~/.config/nvim/plugins/telescope.vim         " telescope.nvim is a highly extendable fuzzy finder over lists.
 source ~/.config/nvim/plugins/nvim-web-devicons.vim " Devicons
+source ~/.config/nvim/plugins/tree.vim              " A File Explorer For Neovim Written In Lua.
 
 call plug#end()
 
 doautocmd User PlugLoaded
 
 " -------------------------------------------------------------------------------
-" Telescope Configuration
+" Telescope Setup
 " -------------------------------------------------------------------------------
 
 lua << EOF
@@ -113,6 +113,20 @@ require('telescope').setup {
 
 require('telescope').load_extension('fzf')
 require("telescope").load_extension('file_browser')
+
+EOF
+
+" -------------------------------------------------------------------------------
+" Tree Setup 
+" -------------------------------------------------------------------------------
+
+ lua << EOF
+ 
+require'nvim-tree'.setup {
+  auto_close = true,
+  -- lsp_diagnostics = true,
+  ignore_ft_on_setup  = { 'startify', 'dashboard' },
+}
 
 EOF
 
