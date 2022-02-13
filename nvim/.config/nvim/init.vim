@@ -72,14 +72,47 @@ call plug#begin()
 source ~/.config/nvim/plugins/airline.vim           " Leam & mean status/tabline form vim that's ligh as air.
 source ~/.config/nvim/plugins/dracula.vim           " dracula - a dark theme for Vim
 source ~/.config/nvim/plugins/nerdtree.vim          " The NERDTree is a file system explorer for the Vim editor.
-source ~/.config/nvim/plugins/fzf.vim               " fzf is a general-purpose command-line fuzzy finder.
 source ~/.config/nvim/plugins/coc.vim               " Make you Vim/Neovim as smart as VSCode.
 source ~/.config/nvim/plugins/commentary.vim        " Comment stuff out.
 source ~/.config/nvim/plugins/dashboard.vim         " Nice looking Dashboard.
 source ~/.config/nvim/plugins/smooth-scroll.vim     " Smooth Scroll.
 source ~/.config/nvim/plugins/cursorline.vim        " Hihglight words and line on the cursor for Neovim. 
 source ~/.config/nvim/plugins/vim-polyglot.vim      " A collection of language packs for Vim
+source ~/.config/nvim/plugins/telescope.vim         " telescope.nvim is a highly extendable fuzzy finder over lists.
+source ~/.config/nvim/plugins/nvim-web-devicons.vim " Devicons
 
 call plug#end()
 
 doautocmd User PlugLoaded
+
+" -------------------------------------------------------------------------------
+" Telescope Configuration
+" -------------------------------------------------------------------------------
+
+lua << EOF
+
+require('telescope').setup {
+  defaults = {
+    color_devicons = true
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = false,
+      override_file_sorter = true,
+      case_mode = "smart_case"
+    },
+  },
+  pickers = {
+    buffers = {
+      show_all_buffers = true,
+      sort_lastused = true,
+    }
+  }
+}
+
+require('telescope').load_extension('fzf')
+require("telescope").load_extension('file_browser')
+
+EOF
+
