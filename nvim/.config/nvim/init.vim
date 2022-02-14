@@ -122,6 +122,9 @@ EOF
  lua << EOF
  
 require'nvim-tree'.setup {
+  view = {
+    width = 50
+  },
   auto_close = true,
   ignore_ft_on_setup = { 'startify', 'dashboard' },
   filters = {
