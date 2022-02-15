@@ -1,1 +1,0 @@
-Plug 'yamatsum/nvim-cursorline'
