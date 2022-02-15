@@ -10,4 +10,12 @@ packer.startup(function(use)
       require('plugins.nvim-tree')
     end
   }
+
+  use {
+    'dracula/vim',
+    as = 'dracula',
+    config = function()
+      require('plugins.dracula')
+    end
+  }
 end)
