@@ -66,5 +66,8 @@ nmap <leader>l :CocFzfList<cr>
 nmap <leader>af <plug>(coc-fix-current)
 nmap <leader>am <plug>(coc-format-selected)
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
 " Adding `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
