@@ -1,9 +1,9 @@
 local packer = require 'lib.packer-init'
 
 packer.startup(function(use)
-  use { 'wbthomason/packer.nvim' }                  -- Packer Initialization
+  use { 'wbthomason/packer.nvim' }
 
-  use {                                             -- Nvim Tree
+  use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
@@ -16,6 +16,19 @@ packer.startup(function(use)
     as = 'dracula',
     config = function()
       require('plugins.dracula')
+    end
+  } 
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'kyazdani42/nvim-web-devicons' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      { 'nvim-telescope/telescope-live-grep-raw.nvim' },
+    },
+    config = function()
+      require('plugins.telescope')
     end
   }
 end)
