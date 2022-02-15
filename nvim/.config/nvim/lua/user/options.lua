@@ -1,0 +1,21 @@
+vim.o.title = true
+vim.o.spell = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.expandtab = true
+vim.o.termguicolors = true
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.mouse = 'a'
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
+vim.o.list = true
+vim.o.ignorecase = true
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.clipboard = 'unnamedplus'
+vim.o.listchars = 'tab:▸ ,trail:·'
+vim.o.updatetime = 300
+vim.o.redrawtime = 10000
+vim.o.wrap = true
+
