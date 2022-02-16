@@ -31,4 +31,12 @@ packer.startup(function(use)
       require('plugins.telescope')
     end
   }
+
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      config = function()
+          require('plugins.nvim-treesitter')
+      end
+  }
 end)
