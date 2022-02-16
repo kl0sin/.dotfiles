@@ -1,6 +1,7 @@
 {
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnSaveFiletypes": ["*"],
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualText": true,
     "diagnostic.enableMessage": "jump",
