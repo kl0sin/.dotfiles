@@ -75,9 +75,11 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <leader>l :CocFzfList<cr>
 
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" apply autofix to problem on the current line.
+nmap <leader>af  <plug>(coc-fix-current)
+nmap <leader>am  <plug>(coc-format-selected)
+xmap <leader>am  <plug>(coc-format-selected)
+nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
