@@ -1,10 +1,34 @@
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local fn = vim.fn
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+-- Automatically install packer
+local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system {
+    'git',
+    'clone',
+    '--depth',
+    '1',
+    'https://github.com/wbthomason/packer.nvim',
+    install_path,
+  }
+  print 'Installing packer, close and reopen Neovim...'
+  vim.cmd [[packadd packer.nvim]]
 end
 
-local packer = require 'packer'
+-- Autocommand that reload neovim whenever you save the plugins.lu file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+  print 'Packer not found!'
+  return
+end
 
 packer.init {
   display = {
@@ -16,18 +40,4 @@ packer.init {
   compile_on_sync = true,
 }
 
-packer.set_handler('config', function(_, plugin, value)
-  if type(value) == 'string' and vim.fn.filereadable(vim.fn.expand(value)) == 1 then
-    plugin.config = "vim.cmd('source " .. value .. "')"
-  end
-end)
-
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]]
-
 return packer
-
