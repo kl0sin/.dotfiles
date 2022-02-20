@@ -1,10 +1,8 @@
 local status_ok, telescope = pcall(require, 'telescope')
 if not status_ok then
-  print 'telescope not found!'
   return
 end
 
-local actions = require 'telescope.actions'
 local keymap = require 'lib.utils'.keymap
 
 keymap('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
@@ -39,4 +37,4 @@ telescope.setup {
   },
 }
 
-require('telescope').load_extension 'fzf'
+telescope.load_extension 'fzf'

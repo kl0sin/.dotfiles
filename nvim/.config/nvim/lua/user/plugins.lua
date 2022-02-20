@@ -5,14 +5,16 @@ packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'nvim-lua/plenary.nvim'
   use 'neovim/nvim-lspconfig'
--- use 'williamboman/nvim-lsp-installer'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-surround'
 
---  use {
---    'neovim/nvim-lspconfig',
---    config = function()
---      require('plugins.lsp-config')
---    end
---  }
+  use {
+    'prettier/vim-prettier',
+    config = function()
+      require('plugins.prettier')
+    end
+  }
 
   use {
     'williamboman/nvim-lsp-installer',
@@ -79,6 +81,24 @@ packer.startup(function(use)
     'glepnir/dashboard-nvim',
     config = function()
       require('plugins.dashboard')
+    end
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    },
+    config = function()
+      require('plugins.bufferline')
+    end
+  }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function ()
+      require('.plugins.lualine')
     end
   }
 

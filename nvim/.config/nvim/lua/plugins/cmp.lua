@@ -33,6 +33,7 @@ cmp.setup {
       c = cmp.mapping.close(),
     }),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<TAB>'] = cmp.mapping.select_next_item(),
   },
   sources = {
     { name = 'nvim_lsp' },

@@ -14,7 +14,7 @@ nvim_tree.setup {
   auto_close = true,
   ignore_ft_on_setup = { 'dashboard' },
   view = {
-    width = 50
+    width = 50,
   },
   git = {
     ignore = false,

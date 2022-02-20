@@ -9,6 +9,16 @@ keymap('i', 'jj', '<ESC>')
 -- Allow gf to open non-existent files
 keymap('', 'gf', ':edit <cfile><CR>')
 
+-- Reselect visual selection after indenting
+keymap('v', '<', '<gv')
+keymap('v', '>', '>gv')
+
+-- Resize with arrows
+keymap('n', '<C-Up>', ':resize +2<CR>')
+keymap('n', '<C-Down>', ':resize -2<CR>')
+keymap('n', '<C-Left>', ':vertical resize -2<CR>')
+keymap('n', '<C-Right>', ':vertical resize +2<CR>')
+
 -- Moving text lines up and down
 keymap('n', 'J', ':m .+1<CR>==')
 keymap('n', 'K', ':m .-2<CR>==')
