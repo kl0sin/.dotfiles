@@ -102,6 +102,23 @@ packer.startup(function(use)
     end
   }
 
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.indent-blankline')
+    end
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function ()
+      require('plugins.gitsigns')
+    end
+  }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
