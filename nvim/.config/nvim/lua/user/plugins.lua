@@ -98,7 +98,7 @@ packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function ()
-      require('.plugins.lualine')
+      require('plugins.lualine')
     end
   }
 
@@ -116,6 +116,13 @@ packer.startup(function(use)
     },
     config = function ()
       require('plugins.gitsigns')
+    end
+  }
+
+  use {
+    'folke/which-key.nvim',
+    config = function()
+      require('plugins.which-key')
     end
   }
 
