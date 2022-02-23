@@ -8,7 +8,7 @@ local keymap = require 'lib.utils'.keymap
 keymap('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 keymap('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
 keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
-keymap('n', '<leader>km', [[<cmd>lua require('telescope.builtin').keymaps()<CR>]])
+keymap('n', '<leader>fm', [[<cmd>lua require('telescope.builtin').keymaps()<CR>]])
 
 telescope.setup {
   defaults = {

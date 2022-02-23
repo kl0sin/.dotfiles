@@ -14,6 +14,9 @@ which_key.register({
     f = 'Find Files',
     g = 'Live Grep',
     b = 'Buffers',
-    k = 'Key Maps',
+    m = 'Key Maps',
+  },
+  c= {
+    name = 'Code Actions'
   }
 }, { prefix = '<leader>'} )

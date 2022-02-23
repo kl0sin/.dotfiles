@@ -14,10 +14,10 @@ keymap('v', '<', '<gv')
 keymap('v', '>', '>gv')
 
 -- Resize with arrows
-keymap('n', '<C-Up>', ':resize +2<CR>')
-keymap('n', '<C-Down>', ':resize -2<CR>')
-keymap('n', '<C-Left>', ':vertical resize -2<CR>')
-keymap('n', '<C-Right>', ':vertical resize +2<CR>')
+keymap('n', '<A-Up>', ':resize +2<CR>')
+keymap('n', '<A-Down>', ':resize -2<CR>')
+keymap('n', '<A-Right>', ':vertical resize -2<CR>')
+keymap('n', '<A-Left>', ':vertical resize +2<CR>')
 
 -- Moving text lines up and down
 keymap('n', 'J', ':m .+1<CR>==')

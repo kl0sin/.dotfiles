@@ -103,13 +103,6 @@ packer.startup(function(use)
   }
 
   use {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('plugins.indent-blankline')
-    end
-  }
-
-  use {
     'lewis6991/gitsigns.nvim',
     requires = {
       'nvim-lua/plenary.nvim'
@@ -123,6 +116,27 @@ packer.startup(function(use)
     'folke/which-key.nvim',
     config = function()
       require('plugins.which-key')
+    end
+  }
+
+  use {
+    'windwp/nvim-autopairs',
+    config = function ()
+      require('plugins.nvim-autopairs')
+    end
+  }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.indent-blankline')
+    end
+  }
+
+  use {
+    'folke/todo-comments.nvim',
+    config = function()
+      require('plugins.todo-comments')
     end
   }
 
