@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 vim.cmd([[
-  highlight IndentBlanklineJess guifg=#2F313C gui=nocombine
+  highlight IndentBlankline guifg=#2F313C gui=nocombine
 ]])
 
 indent_blankline.setup{
@@ -18,6 +18,6 @@ indent_blankline.setup{
   },
   show_first_indent_level = false,
   char_highlight_list = {
-    'IndentBlanklineJess'
+    'IndentBlankline'
   }
 }

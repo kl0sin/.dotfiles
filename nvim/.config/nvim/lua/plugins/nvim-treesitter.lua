@@ -4,12 +4,24 @@ if not status_ok then
   return
 end
 
+
 configs.setup {
   ensure_installed = 'maintained',
-  indent = {
+  sync_install = false,
+  autopairs = {
     enable = true,
   },
-  sync_install = false,
+  autotags = {
+    enable = true,
+    filetypes = {
+      'html',
+      'javascript',
+      'javascriptreact',
+      'typescriptreact',
+      'svelte',
+      'vue',
+    }
+  },
   ignore_install = { '' },
   highlight = {
     enable = true,

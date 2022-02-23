@@ -17,3 +17,6 @@ vim.o.listchars = 'tab:▸ ,trail:·'
 vim.o.updatetime = 300
 vim.o.redrawtime = 10000
 vim.o.wrap = true
+vim.o.showmode = false
+vim.o.fillchars = 'eob: '
+vim.o.smartindent = true
