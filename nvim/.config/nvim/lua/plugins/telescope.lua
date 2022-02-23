@@ -33,7 +33,12 @@ telescope.setup {
   pickers = {
     sort_lastused = true,
     find_files = {
+      previewer = false,
+      theme = 'dropdown',
       hidden = true,
+      layout_config = {
+        width = 100
+      }
     },
   },
 }
