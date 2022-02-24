@@ -8,6 +8,15 @@ packer.startup(function(use)
   use 'tpope/vim-commentary'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
+  use 'tpope/vim-sleuth'
+
+  use {
+    'dracula/vim',
+    as = 'dracula',
+    config = function()
+      require('plugins.dracula')
+    end
+  }
 
   use {
     'prettier/vim-prettier',
@@ -47,14 +56,6 @@ packer.startup(function(use)
     'kyazdani42/nvim-tree.lua',
     config = function()
       require('plugins.nvim-tree')
-    end
-  }
-
-  use {
-    'dracula/vim',
-    as = 'dracula',
-    config = function()
-      require('plugins.dracula')
     end
   }
 
@@ -127,16 +128,16 @@ packer.startup(function(use)
   }
 
   use {
-    'lukas-reineke/indent-blankline.nvim',
+    'folke/todo-comments.nvim',
     config = function()
-      require('plugins.indent-blankline')
+      require('plugins.todo-comments')
     end
   }
 
   use {
-    'folke/todo-comments.nvim',
+    'lukas-reineke/indent-blankline.nvim',
     config = function()
-      require('plugins.todo-comments')
+      require('plugins.indent-blankline')
     end
   }
 

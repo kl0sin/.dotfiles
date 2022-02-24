@@ -20,6 +20,7 @@ local servers = {
   'tailwindcss',
   'html',
   'eslint',
+  'cssls',
   'html',
   'emmet_ls',
   'bashls',
