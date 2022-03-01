@@ -4,7 +4,6 @@ if not status_ok then
   return
 end
 
-vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_gl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
@@ -21,6 +20,11 @@ nvim_tree.setup {
   },
   filters = {
     custom = { '.git', 'node_modules' }
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true
+    }
   }
 }
 

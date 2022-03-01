@@ -141,6 +141,14 @@ packer.startup(function(use)
     end
   }
 
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require('plugins.trouble')
+    end
+  }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
