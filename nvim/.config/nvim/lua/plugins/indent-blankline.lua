@@ -4,11 +4,7 @@ if not status_ok then
   return
 end
 
-vim.cmd([[
-  highlight IndentBlankline guifg=#2F313C gui=nocombine
-]])
-
-indent_blankline.setup{
+indent_blankline.setup {
   filetype_exclude = {
     'help',
     'dashboard',
@@ -17,7 +13,4 @@ indent_blankline.setup{
     'TelescopeResults',
   },
   show_first_indent_level = false,
-  char_highlight_list = {
-    'IndentBlankline'
-  }
 }
