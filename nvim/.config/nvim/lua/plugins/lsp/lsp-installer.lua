@@ -15,6 +15,7 @@ lsp_installer.settings({
 })
 
 local servers = {
+  'angularls',
   'sumneko_lua',
   'tsserver',
   'tailwindcss',
@@ -24,6 +25,7 @@ local servers = {
   'html',
   'emmet_ls',
   'bashls',
+  'yamlls'
 }
 
 for _, name in pairs(servers) do
