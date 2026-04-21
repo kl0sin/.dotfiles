@@ -16,9 +16,6 @@ cask "kitty"
 # Fonts
 cask "font-jetbrains-mono"
 
-# Editor
-brew "neovim"
-
 # Shell tools
 brew "stow"
 brew "ripgrep"

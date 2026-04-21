@@ -11,7 +11,6 @@ Personal macOS configuration for window management, terminal, editor, and tmux.
 | `ghostty/` | [Ghostty](https://ghostty.org/) | **Primary terminal** |
 | `kitty/` | [kitty](https://sw.kovidgoyal.net/kitty/) | Legacy terminal config (kept for fallback) |
 | `tmux/` | [tmux](https://github.com/tmux/tmux) + [TPM](https://github.com/tmux-plugins/tpm) | Terminal multiplexer with Dracula theme |
-| `nvim/` | [Neovim](https://neovim.io/) | Editor — Packer-based, migration to `lazy.nvim` pending |
 
 Window borders come from [JankyBorders](https://github.com/FelixKratz/JankyBorders) and are started automatically by AeroSpace.
 
@@ -38,7 +37,7 @@ If you don't have Homebrew:
 brew bundle
 ```
 
-Installs everything from `Brewfile`: AeroSpace, JankyBorders, Karabiner-Elements, Ghostty, kitty, JetBrains Mono, Neovim, tmux, tmuxinator, ripgrep, lazygit, etc.
+Installs everything from `Brewfile`: AeroSpace, JankyBorders, Karabiner-Elements, Ghostty, kitty, JetBrains Mono, tmux, tmuxinator, ripgrep, lazygit, etc.
 
 ### 4. Link configuration
 
@@ -86,7 +85,6 @@ After `./install`:
 | `karabiner/.config/karabiner/assets/…` | `~/.config/karabiner/assets/…` |
 | `ghostty/.config/ghostty/config` | `~/.config/ghostty/config` |
 | `kitty/.config/kitty/` | `~/.config/kitty/` |
-| `nvim/.config/nvim/` | `~/.config/nvim/` |
 | `tmux/.tmux.conf` | `~/.tmux.conf` |
 
 ## AeroSpace cheatsheet
@@ -110,5 +108,4 @@ After `./install`:
 ## Notes
 
 - Tested on macOS Sequoia (Apple Silicon). Older versions may work but are not verified.
-- Neovim config still uses Packer and `nvim-lsp-installer` (both deprecated). Migration to `lazy.nvim` + `mason.nvim` is the next TODO.
 - PRs and issues welcome.
