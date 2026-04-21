@@ -13,10 +13,9 @@
 
 after-login-command = []
 
-# JankyBorders (kolorowa ramka aktywnego okna) przy starcie
-after-startup-command = [
-  'exec-and-forget borders active_color=0xff7aa2f7 inactive_color=0xff494d64 width=4.0',
-]
+# JankyBorders (kolorowa ramka aktywnego okna) działa jako osobny brew service:
+#   brew services start borders
+# Config: ~/.config/borders/bordersrc (stowowane z dotfiles/borders/)
 
 start-at-login = true
 
@@ -63,6 +62,11 @@ automatically-unhide-macos-hidden-apps = false
     # Resize smart (Aerospace wybiera oś automatycznie)
     ctrl-cmd-alt-minus = 'resize smart -50'
     ctrl-cmd-alt-equal = 'resize smart +50'
+
+    # Rebalans po zamknięciu okna (AeroSpace nie robi tego automatycznie).
+    # flatten najpierw usuwa puste kontenery po zamkniętych oknach,
+    # bez tego samotne okno zostałoby ściśnięte na boku workspace.
+    ctrl-cmd-alt-b = ['flatten-workspace-tree', 'balance-sizes']
 
     # Resize po konkretnej osi (strzałki)
     ctrl-cmd-alt-left  = 'resize width -50'

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# JankyBorders config. Uruchamiane przez `brew services start borders`.
+# Docs: https://github.com/FelixKratz/JankyBorders
+
+options=(
+  active_color=0xff7aa2f7    # Tokyo Night blue dla aktywnego okna
+  inactive_color=0xff494d64  # Tokyo Night muted dla nieaktywnych
+  width=4.0
+)
+
+borders "${options[@]}"
