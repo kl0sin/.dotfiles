@@ -2,7 +2,8 @@
 # Dotfile: ~/_Projects/.dotfiles/ghostty/.config/ghostty/config
 # Symlink: ~/.config/ghostty/config
 
-font-family = "JetBrains Mono"
+# Font — Nerd Font variant ma ikonki (wymagane np. przez lualine, starship)
+font-family = "JetBrainsMono Nerd Font"
 font-style = "Medium"
 font-style-bold = "Bold"
 font-style-italic = "Italic"
@@ -10,9 +11,17 @@ font-style-bold-italic = "Bold Italic"
 font-size = 13
 adjust-cell-height = 25%
 
-theme = Dracula
+# Theme — TokyoNight Storm, spójnie z kolorami borders (0xff7aa2f7 accent)
+theme = "TokyoNight Storm"
 background-opacity = 0.9
+background-blur = 20
 
+# Window
 window-padding-x = 15
 window-padding-y = 15
+window-padding-balance = true
 window-save-state = never
+
+# Cursor
+cursor-style = bar
+cursor-style-blink = true

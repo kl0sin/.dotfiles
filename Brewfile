@@ -15,6 +15,7 @@ cask "kitty"
 
 # Fonts
 cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"  # patched z ikonkami (Ghostty, lualine, starship)
 
 # Shell tools
 brew "stow"
