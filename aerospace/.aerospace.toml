@@ -20,11 +20,16 @@ after-login-command = []
 start-at-login = true
 
 enable-normalization-flatten-containers = true
-enable-normalization-opposite-orientation-for-nested-containers = true
+# Wyłączone: wymuszało przepisywanie drzewa kontenerów przy każdej operacji na
+# oknach (alternująca orientacja H/V/H/V), co powodowało "windows living their
+# own life". Dla płaskiego tilingu (h/j/k/l focus/move) nie daje nic pożytecznego.
+enable-normalization-opposite-orientation-for-nested-containers = false
 
 accordion-padding = 30
 default-root-container-layout = 'tiles'
-default-root-container-orientation = 'auto'
+# 'horizontal' zamiast 'auto' dla przewidywalności — orientacja nie zależy już
+# od aspect ratio monitora.
+default-root-container-orientation = 'horizontal'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
@@ -153,27 +158,22 @@ run = 'layout floating'
 if.window-title-regex-substring = '^(Open|Save|Preferences|Settings)$'
 run = 'layout floating'
 
-# ─── Workspace auto-assignment ──────────────────────────────────────────────
-# Hub (2 przeglądarki + Slack)
+# Karabiner-Elements Settings — sub-apka, której okna zostają w "hidden" state
+# po zamknięciu czerwonym X (bo apka to LSUIElement menu-bar app). AeroSpace
+# widzi je dalej jako regular windows i włącza do tilingu → kompresja layoutu.
+# Floating odcina je od drzewa tilingu niezależnie od ich stanu widoczności.
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 1.Hub'
+if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
+run = 'layout floating'
 
+# System notification dialogs ("App wants to access...", permission prompts).
+# Z definicji dialogi, nie chcemy ich w tilingu.
 [[on-window-detected]]
-if.app-id = 'com.vivaldi.Vivaldi'
-run = 'move-node-to-workspace 1.Hub'
+if.app-id = 'com.apple.UserNotificationCenter'
+run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace 1.Hub'
-
-# Media
-[[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = 'move-node-to-workspace 9.Media'
-
-# Dev / Dev2 / Dev3 = projekty (ręczne — edytor/terminal lądują tam gdzie aktualnie jesteś)
-# Przykład stałego pinowania apki do Comm / Docs:
+# Brak reguł auto-assignment — okna otwierają się tam, gdzie aktualnie jesteś.
+# Jeśli kiedykolwiek zechcesz pinować konkretną apkę do workspace:
 # [[on-window-detected]]
 # if.app-id = 'com.apple.mail'
 # run = 'move-node-to-workspace 5.Comm'
