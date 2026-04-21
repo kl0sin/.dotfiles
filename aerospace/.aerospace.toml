@@ -20,16 +20,11 @@ after-login-command = []
 start-at-login = true
 
 enable-normalization-flatten-containers = true
-# Wyłączone: wymuszało przepisywanie drzewa kontenerów przy każdej operacji na
-# oknach (alternująca orientacja H/V/H/V), co powodowało "windows living their
-# own life". Dla płaskiego tilingu (h/j/k/l focus/move) nie daje nic pożytecznego.
-enable-normalization-opposite-orientation-for-nested-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = true
 
 accordion-padding = 30
 default-root-container-layout = 'tiles'
-# 'horizontal' zamiast 'auto' dla przewidywalności — orientacja nie zależy już
-# od aspect ratio monitora.
-default-root-container-orientation = 'horizontal'
+default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
@@ -171,6 +166,15 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.UserNotificationCenter'
 run = 'layout floating'
+
+# Ghostty — wymuś tiling. AeroSpace nie ma Ghostty w default terminal-exclusion
+# list (tam są tylko WezTerm/Alacritty/iTerm2), więc heurystyka dialog-detection
+# ("okno bez fullscreen buttona = dialog") łapie Ghostty i klasyfikuje jako
+# floating. Ta reguła obejście heurystyki — wymusza tryb tiling dla każdego
+# nowego okna Ghostty.
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'layout tiling'
 
 # Brak reguł auto-assignment — okna otwierają się tam, gdzie aktualnie jesteś.
 # Jeśli kiedykolwiek zechcesz pinować konkretną apkę do workspace:
