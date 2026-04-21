@@ -11,7 +11,9 @@
 # Dzięki temu omijamy konflikty z Polish Pro (alt+l=ł, alt+a=ą, itd.) — Aerospace
 # nigdy nie używa samego alt.
 
-after-login-command = []
+config-version = 2
+
+after-startup-command = []
 
 # JankyBorders (kolorowa ramka aktywnego okna) działa jako osobny brew service:
 #   brew services start borders
@@ -28,6 +30,21 @@ default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
+
+# Workspace'y pozostają "żywe" nawet kiedy są puste — bindingi Hyper+1..9 zawsze
+# trafiają w istniejący workspace zamiast tworzyć go on-demand. Wymaga
+# config-version = 2.
+persistent-workspaces = [
+    "1.Hub",
+    "2.Dev",
+    "3.Dev",
+    "4.Dev",
+    "5.Comm",
+    "6.Docs",
+    "7.Scratch",
+    "8.Test",
+    "9.Media",
+]
 
 [key-mapping]
     preset = 'qwerty'
