@@ -10,7 +10,11 @@ Personal macOS configuration for window management, terminal, editor, and tmux.
 | `karabiner/` | [Karabiner-Elements](https://karabiner-elements.pqrs.org/) | Caps Lock → Hyper (`ctrl+cmd+alt`) / Escape on tap |
 | `ghostty/` | [Ghostty](https://ghostty.org/) | **Primary terminal** |
 | `kitty/` | [kitty](https://sw.kovidgoyal.net/kitty/) | Legacy terminal config (kept for fallback) |
+| `zsh/` | Oh My Zsh + plugins | Zsh config (sources `~/.zshrc.local` for machine-specific stuff) |
+| `starship/` | [Starship](https://starship.rs/) | Cross-shell prompt — Tokyo Night palette, git indicators, language badges |
 | `tmux/` | [tmux](https://github.com/tmux/tmux) + [TPM](https://github.com/tmux-plugins/tpm) | Terminal multiplexer with Dracula theme |
+
+CLI productivity stack installed via Brewfile: `fzf`, `eza`, `bat`, `git-delta`, `zoxide`, `ripgrep`, `lazygit`, `zsh-autosuggestions`, `zsh-syntax-highlighting`.
 
 Window borders come from [JankyBorders](https://github.com/FelixKratz/JankyBorders) and are started automatically by AeroSpace.
 
@@ -85,7 +89,11 @@ After `./install`:
 | `karabiner/.config/karabiner/assets/…` | `~/.config/karabiner/assets/…` |
 | `ghostty/.config/ghostty/config` | `~/.config/ghostty/config` |
 | `kitty/.config/kitty/` | `~/.config/kitty/` |
+| `zsh/.zshrc` | `~/.zshrc` |
+| `starship/.config/starship.toml` | `~/.config/starship.toml` |
 | `tmux/.tmux.conf` | `~/.tmux.conf` |
+
+`~/.zshrc.local` is **not** in the repo — it holds machine-specific Zsh config (NVM, per-user paths, tool installers). Created on first shell setup.
 
 ## AeroSpace cheatsheet
 
@@ -108,4 +116,6 @@ After `./install`:
 ## Notes
 
 - Tested on macOS Sequoia (Apple Silicon). Older versions may work but are not verified.
+- **On first install, before running `./install`:** back up your existing `~/.zshrc` (e.g. `mv ~/.zshrc ~/.zshrc.pre-dotfiles`). Then after `./install`, move any machine-specific Zsh config (NVM, custom paths, language version managers) from the backup into a new `~/.zshrc.local` — the managed `~/.zshrc` sources it automatically.
+- **git-delta** is wired as the git pager via `git config --global` on first use. If you want it globally: `git config --global core.pager delta && git config --global interactive.diffFilter "delta --color-only" && git config --global delta.navigate true && git config --global delta.line-numbers true && git config --global merge.conflictStyle zdiff3`.
 - PRs and issues welcome.

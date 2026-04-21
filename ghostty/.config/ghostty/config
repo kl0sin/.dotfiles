@@ -25,3 +25,7 @@ window-save-state = never
 # Cursor
 cursor-style = bar
 cursor-style-blink = true
+
+# Quality-of-life
+mouse-hide-while-typing = true
+confirm-close-surface = false

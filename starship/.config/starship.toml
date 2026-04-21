@@ -1,0 +1,119 @@
+# Starship prompt config
+# Dotfile: ~/_Projects/.dotfiles/starship/.config/starship.toml
+# Symlink: ~/.config/starship.toml
+#
+# Palette: Tokyo Night (spójny z borders/Ghostty theme).
+
+format = """
+[╭─](fg:overlay)$directory\
+$git_branch\
+$git_status\
+$nodejs$python$rust$golang$bun\
+$cmd_duration\
+$line_break\
+[╰─](fg:overlay)$character"""
+
+palette = "tokyonight"
+
+[palettes.tokyonight]
+bg         = "#1a1b26"
+fg         = "#c0caf5"
+blue       = "#7aa2f7"
+cyan       = "#7dcfff"
+green      = "#9ece6a"
+purple     = "#bb9af7"
+red        = "#f7768e"
+orange     = "#ff9e64"
+yellow     = "#e0af68"
+muted      = "#565f89"
+overlay    = "#414868"
+
+# ─── Directory ──────────────────────────────────────────────────────────────
+[directory]
+format = "[ $path]($style)[$read_only]($read_only_style) "
+style = "bold blue"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " "
+read_only_style = "red"
+
+[directory.substitutions]
+"~/_Projects" = " Projects"
+"Documents"   = " Docs"
+"Downloads"   = " Dl"
+
+# ─── Git ────────────────────────────────────────────────────────────────────
+[git_branch]
+format = "[on](fg:muted) [$symbol$branch]($style) "
+symbol = " "
+style = "purple"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "orange"
+conflicted = "⚠ "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = "\\$"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+# ─── Languages / runtimes ──────────────────────────────────────────────────
+[nodejs]
+format = "[$symbol($version) ]($style)"
+symbol = " "
+style = "green"
+detect_files = ["package.json", ".nvmrc"]
+
+[python]
+format = "[${symbol}${pyv_from_version}${version}( \\($virtualenv\\))]($style) "
+symbol = " "
+style = "yellow"
+
+[rust]
+format = "[$symbol($version) ]($style)"
+symbol = " "
+style = "red"
+
+[golang]
+format = "[$symbol($version) ]($style)"
+symbol = " "
+style = "cyan"
+
+[bun]
+format = "[$symbol($version) ]($style)"
+symbol = "🍞 "
+style = "yellow"
+
+# ─── Command duration ──────────────────────────────────────────────────────
+[cmd_duration]
+min_time = 2000
+format = "[took](fg:muted) [$duration]($style) "
+style = "yellow"
+
+# ─── Character (prompt ending) ─────────────────────────────────────────────
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold blue)"
+
+# ─── Disable noisy defaults ────────────────────────────────────────────────
+[package]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[docker_context]
+disabled = true

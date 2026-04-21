@@ -23,6 +23,16 @@ brew "ripgrep"
 brew "lazygit"
 brew "wget"
 
+# Modern CLI replacements + productivity
+brew "starship"                    # prompt z git indicators
+brew "fzf"                         # fuzzy finder (Ctrl+R, Ctrl+T)
+brew "eza"                         # modern ls z ikonkami + --git
+brew "bat"                         # cat z syntax highlighting
+brew "git-delta"                   # pretty git diff
+brew "zoxide"                      # smart cd (z foo)
+brew "zsh-autosuggestions"         # fish-style suggestions
+brew "zsh-syntax-highlighting"     # live command coloring
+
 # Tmux
 brew "tmuxinator"
 
