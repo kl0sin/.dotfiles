@@ -1,9 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v stow >/dev/null 2>&1; then
+  echo "Error: 'stow' is not installed." >&2
+  exit 1
+fi
+
+cd "$(dirname "$0")"
+
 echo "Removing symlinks.."
 
-for DIRECTORY in */;
-do 
-	echo "  "$DIRECTORY
-	stow --target=$HOME -D $DIRECTORY
-done	
+for DIRECTORY in */; do
+  echo "  ${DIRECTORY%/}"
+  stow --target="$HOME" -D "$DIRECTORY"
+done
 
-echo "Symlinks removed.."
+echo "Symlinks removed."

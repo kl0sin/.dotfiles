@@ -1,62 +1,114 @@
 # .dotfiles
 
-My personal collection of config files.
+Personal macOS configuration for window management, terminal, editor, and tmux.
 
-- [Install](#install)
-  - [Clone repo](#clone-repo)
-  - [Brew](#brew)
-  - [Install Packages](#install-packages)
-  - [Link configuration](#link-configuration)
-- [Uninstall](#uninstall)
+## What's included
+
+| Module | Tool | Purpose |
+|---|---|---|
+| `aerospace/` | [AeroSpace](https://github.com/nikitabobko/AeroSpace) | i3-style tiling window manager |
+| `karabiner/` | [Karabiner-Elements](https://karabiner-elements.pqrs.org/) | Caps Lock → Hyper (`ctrl+cmd+alt`) / Escape on tap |
+| `ghostty/` | [Ghostty](https://ghostty.org/) | **Primary terminal** |
+| `kitty/` | [kitty](https://sw.kovidgoyal.net/kitty/) | Legacy terminal config (kept for fallback) |
+| `tmux/` | [tmux](https://github.com/tmux/tmux) + [TPM](https://github.com/tmux-plugins/tpm) | Terminal multiplexer with Dracula theme |
+| `nvim/` | [Neovim](https://neovim.io/) | Editor — Packer-based, migration to `lazy.nvim` pending |
+
+Window borders come from [JankyBorders](https://github.com/FelixKratz/JankyBorders) and are started automatically by AeroSpace.
 
 ## Install
 
-Please follow the below steps to make sure, that everything is working correctly.
-
-### Clone repo
-
-Before we start, you need to clone this repository
+### 1. Clone
 
 ```zsh
-git clone git@github.com:kl0sin/.dotfiles.git
+git clone git@github.com:kl0sin/.dotfiles.git ~/_Projects/.dotfiles
+cd ~/_Projects/.dotfiles
 ```
 
-and after go to `.dotfiles` directory.
+### 2. Homebrew
 
-```zsh
-cd .dotfiles/
-```
-
-### Brew
-
-Make sure you have `HomeBrew` installed, if not - install it
+If you don't have Homebrew:
 
 ```zsh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Install Packages
-
-Install all needed packages defined in the `Brewfile`
+### 3. Packages
 
 ```zsh
 brew bundle
 ```
 
-### Link configuration
+Installs everything from `Brewfile`: AeroSpace, JankyBorders, Karabiner-Elements, Ghostty, kitty, JetBrains Mono, Neovim, tmux, tmuxinator, ripgrep, lazygit, etc.
 
-Create symlinks in your `$HOME` directory using `stow` by running:
+### 4. Link configuration
 
 ```zsh
 ./install
 ```
 
-## Uninstall
+Uses GNU Stow to symlink each top-level directory into `$HOME`. Run `./uninstall` to reverse.
 
-To remove symlinks from you `$HOME` directory run:
+### 5. Karabiner — enable the Hyper rule
+
+Karabiner-Elements manages its main config (`~/.config/karabiner/karabiner.json`) through the app GUI, so this repo only ships the **Caps Lock → Hyper / Escape** rule as an importable asset:
+
+1. Launch **Karabiner-Elements** and grant the required permissions in **System Settings → Privacy & Security** (Input Monitoring, Accessibility).
+2. Open **Complex Modifications → Add rule**.
+3. Enable *"Caps Lock: hold = Hyper (ctrl+cmd+alt), tap = Escape"*.
+
+### 6. AeroSpace — first run
+
+Launch **AeroSpace.app** once and grant Accessibility permissions. It auto-starts on login (`start-at-login = true`) and launches JankyBorders automatically.
+
+### 7. tmux plugins (TPM)
+
+```zsh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Then start tmux and press `prefix + I` (prefix is remapped to `Ctrl-a`) to install plugins.
+
+## Uninstall
 
 ```zsh
 ./uninstall
 ```
 
-> Everything was prepared using `zsh` and `masOS Monterey 12.2`. Some issues my happen during the installation process. Feel free to open `Pull Request` if you want to help.
+Removes all symlinks from `$HOME`. Does not uninstall Homebrew packages — run `brew bundle cleanup --force` separately if you want that too.
+
+## Symlink layout
+
+After `./install`:
+
+| Source (in repo) | Target (`$HOME`) |
+|---|---|
+| `aerospace/.aerospace.toml` | `~/.aerospace.toml` |
+| `karabiner/.config/karabiner/assets/…` | `~/.config/karabiner/assets/…` |
+| `ghostty/.config/ghostty/config` | `~/.config/ghostty/config` |
+| `kitty/.config/kitty/` | `~/.config/kitty/` |
+| `nvim/.config/nvim/` | `~/.config/nvim/` |
+| `tmux/.tmux.conf` | `~/.tmux.conf` |
+
+## AeroSpace cheatsheet
+
+`Hyper` = **Caps Lock held** (emits `ctrl+cmd+alt`). Tap Caps Lock = `Esc`.
+
+| Binding | Action |
+|---|---|
+| `Hyper + h/j/k/l` | Focus left / down / up / right |
+| `Hyper + Shift + h/j/k/l` | Move focused window |
+| `Hyper + 1..9` | Switch workspace (1.Hub, 2.Dev, 3.Dev, 4.Dev, 5.Comm, 6.Docs, 7.Scratch, 8.Test, 9.Media) |
+| `Hyper + Shift + 1..9` | Move window to workspace |
+| `Hyper + Tab` | Back-and-forth between the last two workspaces |
+| `Hyper + -` / `Hyper + =` | Resize smart |
+| `Hyper + /` | Tiles layout |
+| `Hyper + ,` | Accordion layout |
+| `Hyper + ;` | Enter service mode |
+
+**Service mode:** `r` reset layout · `f` toggle floating · `c` close window · `b` balance sizes · `Backspace` close-all-but-current · `Esc` reload config and exit.
+
+## Notes
+
+- Tested on macOS Sequoia (Apple Silicon). Older versions may work but are not verified.
+- Neovim config still uses Packer and `nvim-lsp-installer` (both deprecated). Migration to `lazy.nvim` + `mason.nvim` is the next TODO.
+- PRs and issues welcome.

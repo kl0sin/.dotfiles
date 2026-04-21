@@ -1,9 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v stow >/dev/null 2>&1; then
+  echo "Error: 'stow' is not installed. Run: brew install stow" >&2
+  exit 1
+fi
+
+cd "$(dirname "$0")"
+
 echo "Creating symlinks.."
 
-for DIRECTORY in */;
-do
-	echo "  "Adding $DIRECTORY
-	stow --target=$HOME $DIRECTORY
+for DIRECTORY in */; do
+  echo "  Adding ${DIRECTORY%/}"
+  stow --target="$HOME" "$DIRECTORY"
 done
 
-echo "Symlinks created.."
+echo "Symlinks created."
