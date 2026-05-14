@@ -2,30 +2,58 @@
 # Dotfile: ~/_Projects/.dotfiles/ghostty/.config/ghostty/config
 # Symlink: ~/.config/ghostty/config
 
-# Font — Nerd Font variant ma ikonki (wymagane np. przez lualine, starship)
+# ─── Font ──────────────────────────────────────────────────────────────────
 font-family = "JetBrainsMono Nerd Font"
 font-style = "Medium"
 font-style-bold = "Bold"
 font-style-italic = "Italic"
 font-style-bold-italic = "Bold Italic"
 font-size = 13
-adjust-cell-height = 25%
+font-thicken = true
+adjust-cell-height = 18%
 
-# Theme — TokyoNight Storm, spójnie z kolorami borders (0xff7aa2f7 accent)
-theme = "TokyoNight Storm"
-background-opacity = 0.9
-background-blur = 20
+# ─── Theme — custom: minimalna paleta szarości + jeden accent (#7aa2f7)
+# Spójność z borders (active 0xff7aa2f7) i starship palette.tokyonight.
+background = #0e0f14
+foreground = #c8ccd4
+cursor-color = #7aa2f7
+selection-background = #2a2f3a
+selection-foreground = #e8ebf0
 
-# Window
-window-padding-x = 15
-window-padding-y = 15
+palette = 0=#15171c
+palette = 1=#d97a7a
+palette = 2=#9ab87a
+palette = 3=#d4b16a
+palette = 4=#7aa2f7
+palette = 5=#b39ad9
+palette = 6=#7ec0c4
+palette = 7=#c8ccd4
+palette = 8=#3a3f4a
+palette = 9=#e0908f
+palette = 10=#aac68b
+palette = 11=#e0c07d
+palette = 12=#8fb3ff
+palette = 13=#c4abe5
+palette = 14=#92cdd1
+palette = 15=#e8ebf0
+
+# ─── Window ────────────────────────────────────────────────────────────────
+window-padding-x = 22
+window-padding-y = 18
 window-padding-balance = true
 window-save-state = never
+window-colorspace = display-p3
+background-opacity = 0.94
+background-blur = 22
+unfocused-split-opacity = 0.85
 
-# Cursor
+# macOS — przezroczysty titlebar (zlewa się z tłem, ale traffic lights zostają)
+macos-titlebar-style = transparent
+
+# ─── Cursor ────────────────────────────────────────────────────────────────
 cursor-style = bar
 cursor-style-blink = true
 
-# Quality-of-life
+# ─── Quality-of-life ───────────────────────────────────────────────────────
 mouse-hide-while-typing = true
 confirm-close-surface = false

@@ -11,7 +11,6 @@ cask "karabiner-elements"
 
 # Terminals
 cask "ghostty"
-cask "kitty"
 
 # Fonts
 cask "font-jetbrains-mono"
@@ -22,6 +21,12 @@ brew "stow"
 brew "ripgrep"
 brew "lazygit"
 brew "wget"
+brew "jq"                          # JSON CLI processor
+brew "gh"                          # GitHub CLI
+brew "git-lfs"                     # large file storage for git
+
+# Editor
+brew "neovim"
 
 # Modern CLI replacements + productivity
 brew "starship"                    # prompt z git indicators
@@ -33,9 +38,18 @@ brew "zoxide"                      # smart cd (z foo)
 brew "zsh-autosuggestions"         # fish-style suggestions
 brew "zsh-syntax-highlighting"     # live command coloring
 
+# Languages / runtime managers
+brew "nvm"                         # Node version manager
+brew "pnpm"                        # Node package manager
+brew "python@3.12"
+brew "python@3.11"
+brew "python@3.10"
+brew "python@3.9"
+
 # Tmux
 brew "tmuxinator"
 
 # Misc
-brew "gotop"
+brew "btop"                        # system monitor (gotop replacement — gotop is unmaintained)
 brew "slides"
+brew "libmagic"                    # file type detection (dep used by some CLI tools)

@@ -7,12 +7,12 @@ Personal macOS configuration for window management, terminal, editor, and tmux.
 | Module | Tool | Purpose |
 |---|---|---|
 | `aerospace/` | [AeroSpace](https://github.com/nikitabobko/AeroSpace) | i3-style tiling window manager |
+| `borders/` | [JankyBorders](https://github.com/FelixKratz/JankyBorders) | Active/inactive window border highlighting (auto-started by AeroSpace) |
 | `karabiner/` | [Karabiner-Elements](https://karabiner-elements.pqrs.org/) | Caps Lock → Hyper (`ctrl+cmd+alt`) / Escape on tap |
 | `ghostty/` | [Ghostty](https://ghostty.org/) | **Primary terminal** |
-| `kitty/` | [kitty](https://sw.kovidgoyal.net/kitty/) | Legacy terminal config (kept for fallback) |
-| `zsh/` | Oh My Zsh + plugins | Zsh config (sources `~/.zshrc.local` for machine-specific stuff) |
+| `zsh/` | Zsh + Oh My Zsh (git plugin) + brew plugins | Prompt is Starship; OMZ is kept only for git aliases. Autosuggest + syntax-highlight sourced from Homebrew. Sources `~/.zshrc.local` for machine-specific config |
 | `starship/` | [Starship](https://starship.rs/) | Cross-shell prompt — Tokyo Night palette, git indicators, language badges |
-| `tmux/` | [tmux](https://github.com/tmux/tmux) + [TPM](https://github.com/tmux-plugins/tpm) | Terminal multiplexer with Dracula theme |
+| `tmux/` | [tmux](https://github.com/tmux/tmux) + [TPM](https://github.com/tmux-plugins/tpm) | Terminal multiplexer with Tokyo Night theme |
 
 CLI productivity stack installed via Brewfile: `fzf`, `eza`, `bat`, `git-delta`, `zoxide`, `ripgrep`, `lazygit`, `zsh-autosuggestions`, `zsh-syntax-highlighting`.
 
@@ -41,7 +41,7 @@ If you don't have Homebrew:
 brew bundle
 ```
 
-Installs everything from `Brewfile`: AeroSpace, JankyBorders, Karabiner-Elements, Ghostty, kitty, JetBrains Mono, tmux, tmuxinator, ripgrep, lazygit, etc.
+Installs everything from `Brewfile`: AeroSpace, JankyBorders, Karabiner-Elements, Ghostty, JetBrains Mono, tmux, tmuxinator, ripgrep, lazygit, etc.
 
 ### 4. Link configuration
 
@@ -86,9 +86,9 @@ After `./install`:
 | Source (in repo) | Target (`$HOME`) |
 |---|---|
 | `aerospace/.aerospace.toml` | `~/.aerospace.toml` |
+| `borders/.config/borders/` | `~/.config/borders/` |
 | `karabiner/.config/karabiner/assets/…` | `~/.config/karabiner/assets/…` |
 | `ghostty/.config/ghostty/config` | `~/.config/ghostty/config` |
-| `kitty/.config/kitty/` | `~/.config/kitty/` |
 | `zsh/.zshrc` | `~/.zshrc` |
 | `starship/.config/starship.toml` | `~/.config/starship.toml` |
 | `tmux/.tmux.conf` | `~/.tmux.conf` |
