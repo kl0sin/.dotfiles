@@ -1,0 +1,58 @@
+# Warp custom theme — zsynchronizowany 1:1 z paletą Ghostty.
+# Dotfile: ~/_Projects/.dotfiles/warp/.warp/themes/dotfiles-tokyo.yaml
+# Symlink: ~/.warp/themes/dotfiles-tokyo.yaml
+#
+# Spójność z:
+#   - ghostty/.config/ghostty/config (background, foreground, palette 0-15)
+#   - borders/bordersrc              (active 0xff7aa2f7 = accent)
+#   - starship                       (palette.tokyonight)
+#
+# Brak w schemacie Warp YAML (limitacja, nie da się nadpisać):
+#   - selection_background/foreground → Warp pochodzi z accentu
+#   - cell height adjustment          → Ghostty-only, brak odpowiednika
+#   - opacity / blur                  → Warp trzyma w Settings, nie w theme
+#
+# ─── Reprodukcja UI settings (Warp → Settings → Appearance) ────────────────
+# Te pola NIE są częścią schematu YAML — Warp trzyma je w prefs.
+# Notatka reprodukcji dla nowej maszyny / reinstal:
+#
+#   Window:
+#     Opacity              = 74          (Ghostty equiv: background-opacity 0.94)
+#     Blur radius          = 40          (Ghostty equiv: background-blur 22)
+#   Text:
+#     Font family          = JetBrainsMono Nerd Font
+#     Font weight          = Normal      (Warp binary picker; Ghostty: Medium)
+#     Font size            = 13
+#     Cursor shape         = Bar
+#     Cursor blink         = on
+#   Tabs:
+#     Vertical Tabs        = on          (left sidebar, akcent współgra z AeroSpace)
+#
+# ─── Color theme (właściwy schemat YAML) ───────────────────────────────────
+
+name: Dotfiles Tokyo
+accent: '#7aa2f7'
+cursor: '#7aa2f7'
+background: '#0e0f14'
+foreground: '#c8ccd4'
+details: darker
+
+terminal_colors:
+  normal:
+    black:   '#15171c'
+    red:     '#d97a7a'
+    green:   '#9ab87a'
+    yellow:  '#d4b16a'
+    blue:    '#7aa2f7'
+    magenta: '#b39ad9'
+    cyan:    '#7ec0c4'
+    white:   '#c8ccd4'
+  bright:
+    black:   '#3a3f4a'
+    red:     '#e0908f'
+    green:   '#aac68b'
+    yellow:  '#e0c07d'
+    blue:    '#8fb3ff'
+    magenta: '#c4abe5'
+    cyan:    '#92cdd1'
+    white:   '#e8ebf0'
