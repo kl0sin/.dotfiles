@@ -1,10 +1,5 @@
-# Taps
-tap "nikitabobko/tap"
-tap "felixkratz/formulae"
-
 # Window management
-cask "nikitabobko/tap/aerospace"
-brew "felixkratz/formulae/borders"
+cask "loop"                        # Loop — radial menu / thirds / cycles (GUI config)
 
 # Input remapping (Caps Lock → Hyper / Escape)
 cask "karabiner-elements"

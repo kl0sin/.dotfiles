@@ -4,7 +4,6 @@
 #
 # Spójność z:
 #   - ghostty/.config/ghostty/config (background, foreground, palette 0-15)
-#   - borders/bordersrc              (active 0xff7aa2f7 = accent)
 #   - starship                       (palette.tokyonight)
 #
 # Brak w schemacie Warp YAML (limitacja, nie da się nadpisać):
@@ -26,7 +25,7 @@
 #     Cursor shape         = Bar
 #     Cursor blink         = on
 #   Tabs:
-#     Vertical Tabs        = on          (left sidebar, akcent współgra z AeroSpace)
+#     Vertical Tabs        = on          (left sidebar)
 #
 # ─── Color theme (właściwy schemat YAML) ───────────────────────────────────
 

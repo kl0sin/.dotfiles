@@ -1,13 +1,11 @@
 # .dotfiles
 
-Personal macOS configuration for window management, terminal, editor, and tmux.
+Personal macOS configuration for terminal, shell, editor, and tmux.
 
 ## What's included
 
 | Module | Tool | Purpose |
 |---|---|---|
-| `aerospace/` | [AeroSpace](https://github.com/nikitabobko/AeroSpace) | i3-style tiling window manager |
-| `borders/` | [JankyBorders](https://github.com/FelixKratz/JankyBorders) | Active/inactive window border highlighting (auto-started by AeroSpace) |
 | `karabiner/` | [Karabiner-Elements](https://karabiner-elements.pqrs.org/) | Caps Lock → Hyper (`ctrl+cmd+alt`) / Escape on tap |
 | `ghostty/` | [Ghostty](https://ghostty.org/) | **Primary terminal** |
 | `zsh/` | Zsh + Oh My Zsh (git plugin) + brew plugins | Prompt is Starship; OMZ is kept only for git aliases. Autosuggest + syntax-highlight sourced from Homebrew. Sources `~/.zshrc.local` for machine-specific config |
@@ -16,7 +14,7 @@ Personal macOS configuration for window management, terminal, editor, and tmux.
 
 CLI productivity stack installed via Brewfile: `fzf`, `eza`, `bat`, `git-delta`, `zoxide`, `ripgrep`, `lazygit`, `zsh-autosuggestions`, `zsh-syntax-highlighting`.
 
-Window borders come from [JankyBorders](https://github.com/FelixKratz/JankyBorders) and are started automatically by AeroSpace.
+Window management is [Loop](https://github.com/MrKai77/Loop) (installed via Brewfile). It is configured through its own GUI, so nothing for it lives in this repo — see the Loop section below.
 
 ## Install
 
@@ -41,7 +39,7 @@ If you don't have Homebrew:
 brew bundle
 ```
 
-Installs everything from `Brewfile`: AeroSpace, JankyBorders, Karabiner-Elements, Ghostty, JetBrains Mono, tmux, tmuxinator, ripgrep, lazygit, etc.
+Installs everything from `Brewfile`: Loop, Karabiner-Elements, Ghostty, JetBrains Mono, tmux, tmuxinator, ripgrep, lazygit, etc.
 
 ### 4. Link configuration
 
@@ -59,9 +57,13 @@ Karabiner-Elements manages its main config (`~/.config/karabiner/karabiner.json`
 2. Open **Complex Modifications → Add rule**.
 3. Enable *"Caps Lock: hold = Hyper (ctrl+cmd+alt), tap = Escape"*.
 
-### 6. AeroSpace — first run
+### 6. Loop — first run
 
-Launch **AeroSpace.app** once and grant Accessibility permissions. It auto-starts on login (`start-at-login = true`) and launches JankyBorders automatically.
+Launch **Loop.app** once, grant Accessibility permissions and enable launch at login. Then in **Settings**:
+
+- **Trigger key**: Caps Lock (Hyper) — emitted by the Karabiner rule above.
+- **Keybindings → +**: add the *Thirds* actions; the radial menu only maps halves/quarters, so wrap thirds in **Cycle** keybinds (e.g. Left Half → Left Two Thirds → Left Third) and repeat the key or left-click to cycle.
+- **Behavior → Padding**: window gaps + screen padding (per screen if needed).
 
 ### 7. tmux plugins (TPM)
 
@@ -85,8 +87,6 @@ After `./install`:
 
 | Source (in repo) | Target (`$HOME`) |
 |---|---|
-| `aerospace/.aerospace.toml` | `~/.aerospace.toml` |
-| `borders/.config/borders/` | `~/.config/borders/` |
 | `karabiner/.config/karabiner/assets/…` | `~/.config/karabiner/assets/…` |
 | `ghostty/.config/ghostty/config` | `~/.config/ghostty/config` |
 | `zsh/.zshrc` | `~/.zshrc` |
@@ -94,24 +94,6 @@ After `./install`:
 | `tmux/.tmux.conf` | `~/.tmux.conf` |
 
 `~/.zshrc.local` is **not** in the repo — it holds machine-specific Zsh config (NVM, per-user paths, tool installers). Created on first shell setup.
-
-## AeroSpace cheatsheet
-
-`Hyper` = **Caps Lock held** (emits `ctrl+cmd+alt`). Tap Caps Lock = `Esc`.
-
-| Binding | Action |
-|---|---|
-| `Hyper + h/j/k/l` | Focus left / down / up / right |
-| `Hyper + Shift + h/j/k/l` | Move focused window |
-| `Hyper + 1..9` | Switch workspace (1.Hub, 2.Dev, 3.Dev, 4.Dev, 5.Comm, 6.Docs, 7.Scratch, 8.Test, 9.Media) |
-| `Hyper + Shift + 1..9` | Move window to workspace |
-| `Hyper + Tab` | Back-and-forth between the last two workspaces |
-| `Hyper + -` / `Hyper + =` | Resize smart |
-| `Hyper + /` | Tiles layout |
-| `Hyper + ,` | Accordion layout |
-| `Hyper + ;` | Enter service mode |
-
-**Service mode:** `r` reset layout · `f` toggle floating · `c` close window · `b` balance sizes · `Backspace` close-all-but-current · `Esc` reload config and exit.
 
 ## Notes
 

@@ -2,7 +2,7 @@
 # Dotfile: ~/_Projects/.dotfiles/starship/.config/starship.toml
 # Symlink: ~/.config/starship.toml
 #
-# Palette: Tokyo Night (spójny z borders/Ghostty theme).
+# Palette: Tokyo Night (spójny z Ghostty theme).
 
 format = """
 [╭─](fg:overlay)$directory\

@@ -13,7 +13,7 @@ font-thicken = true
 adjust-cell-height = 18%
 
 # ─── Theme — custom: minimalna paleta szarości + jeden accent (#7aa2f7)
-# Spójność z borders (active 0xff7aa2f7) i starship palette.tokyonight.
+# Spójność ze starship palette.tokyonight.
 background = #0e0f14
 foreground = #c8ccd4
 cursor-color = #7aa2f7
